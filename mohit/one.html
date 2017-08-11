@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular JS</title>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-messages.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.5/angular-route.min.js"></script>
+
+    <script src="mohit.js"></script>
+
+
+</head>
+<body>
+
+
+    <div ng-controller="thecontroller">
+        <h1>Hi {{name}}</h1>
+
+        <hr />
+
+        <label>Enter Your Name: <input type="text" ng-model="handle"></label>
+        <div>Your Name Is: {{handle}}</div>
+
+        <div class="alert" ng-if="handle.length < character">
+            <!--Min 6 Characters Required-->
+            <ul>
+                <label>Rules:</label>
+                <li ng-repeat="rule in rules">
+                    {{rule.rulename}}
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <hr />
+    <form name="myForm">
+           <label>
+             Enter text:
+             <input type="email" ng-model="field" name="myField" required maxlength="15" />
+           </label>
+           <div ng-messages="myForm.myField.$error" role="alert">
+             <div ng-message="required">Please enter a value for this field.</div>
+             <div ng-message="email">This field must be a valid email address.</div>
+             <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+           </div>
+    </form>
+
+
+
+
+</body>
+</html>
